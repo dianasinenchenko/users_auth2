@@ -62,3 +62,16 @@ def user_page(request):
         context={'user':user}
     )
 
+
+def users(request):
+
+    try:
+
+        user = User.objects.count()
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+    return render(
+        request,
+        'user_list.html',
+        context={'user': user}
+    )
