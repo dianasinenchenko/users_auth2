@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from django.contrib.auth import  views as auth_views
 from users_auth2.authentication import views as core_views
-from users_auth2.authentication.views import user_page, users
+from users_auth2.authentication.views import users
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,7 +31,7 @@ urlpatterns += [
     url(r'^account_activation_sent/$', core_views.account_activation_sent, name='account_activation_sent'),
     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         core_views.activate, name='activate'),
-    url(r'user_page/$', user_page, name='user_page'),
     url(r'users/$', users, name= 'users' )
+
 
 ]
