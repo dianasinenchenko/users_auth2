@@ -21,7 +21,7 @@ def signup(request):
 
             request.session['uidb64'] = user.pk
 
-            return redirect('user_page')
+            return redirect('home')
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
@@ -44,23 +44,9 @@ def activate(request, uidb64, token):
         user.save()
         login(request, user)
 
-       # return redirect('')
+        return redirect('home')
     else:
         return render(request, 'account_activation_invalid.html')
-
-
-def user_page(request):
-    uidb64 = request.session.get('uidb64')
-    try:
-
-        user = User.objects.get(pk=uidb64)
-    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
-        user = None
-    return render(
-        request,
-        'user_page.html',
-        context={'user':user}
-    )
 
 
 def users(request):
