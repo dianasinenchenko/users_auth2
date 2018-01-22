@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.views import generic
+
 from users_auth2.authentication.forms import SignUpForm
 from users_auth2.authentication.tokens import account_activation_token
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
@@ -61,3 +63,9 @@ def users(request):
         'user_list.html',
         context={'user': user}
     )
+
+
+class UserListView(generic.ListView):
+    model = User
+    paginate_by = 4
+
