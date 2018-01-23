@@ -67,5 +67,8 @@ def users(request):
 
 class UserListView(generic.ListView):
     model = User
-    paginate_by = 4
+    paginate_by = 10
+    template_name = 'user_list.html'
+
+
 
