@@ -16,9 +16,9 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.urls import path
-from django.contrib.auth import  views as auth_views
+from django.contrib.auth import views as auth_views
 from users_auth2.authentication import views as core_views
-from users_auth2.authentication.views import users
+from users_auth2.authentication.views import users, UserListView
 
 
 urlpatterns = [
@@ -32,8 +32,8 @@ urlpatterns += [
     url(r'^account_activation_sent/$', core_views.account_activation_sent, name='account_activation_sent'),
     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         core_views.activate, name='activate'),
-    url(r'users/$', users, name= 'users' ),
-    url(r'^user_list/$', core_views.UserListView.as_view(),name='user_list')
+    url(r'users/$', users, name= 'users'),
+    url(r'user_list/', UserListView.as_view(),name='user_list'),
 
 
 ]
