@@ -1,12 +1,11 @@
 from django.shortcuts import render, redirect
 from django.views import generic
-
-from users_auth2.authentication.forms import SignUpForm
-from users_auth2.authentication.tokens import account_activation_token
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.utils.encoding import force_bytes, force_text
+from django.utils.http import urlsafe_base64_decode
+from django.utils.encoding import force_text
 from django.contrib.auth.models import User
 from django.contrib.auth import login
+from users_auth2.authentication.forms import SignUpForm
+from users_auth2.authentication.tokens import account_activation_token
 
 
 def home(request):
@@ -20,10 +19,8 @@ def signup(request):
             user = form.save(commit=False)
             user.is_active = True
             user.save()
-
             request.session['uidb64'] = user.pk
-
-            return redirect('home')
+            return redirect('login')
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
@@ -51,24 +48,8 @@ def activate(request, uidb64, token):
         return render(request, 'account_activation_invalid.html')
 
 
-def users(request):
-
-    try:
-
-        user = User.objects.count()
-    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
-        user = None
-    return render(
-        request,
-        'user_list.html',
-        context={'user': user}
-    )
-
-
 class UserListView(generic.ListView):
     model = User
-    paginate_by = 10
+    paginate_by = 7
     template_name = 'user_list.html'
-
-
 
