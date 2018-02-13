@@ -8,21 +8,22 @@
       {{ field.label_tag }} <br>
        {{ field }}<br>
         {% for error in field.errors %}
-          <p style="
-          color: red;
-         margin: 7px 60px 7px 800px;" >{{ error }}</p>
+          {{ error }}
         {% endfor %}
     {% endfor %}
-    <button type="submit" style="
-    background-color: cornflowerblue;
-    margin: 7px 60px 7px 25px;
-    border: none;
-    color: white;
-    padding: 15px 25px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;">SIGN UP</button>
+       </p>
+
+         <button type="submit" style="
+                 background-color: cornflowerblue;
+                 margin: 7px 60px 7px 825px;
+                 border:   none;
+                 color: white;
+                 padding: 15px 25px;
+                 text-align: center;
+                 text-decoration: none;
+                 display: inline-block;
+                 font-size: 16px;">SIGN UP</button>
+
   </form>
 {% endblock %}
 
