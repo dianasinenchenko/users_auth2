@@ -1,26 +1,46 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
+{% load staticfiles %}
 {% block content %}
-  <h2>Log in to My Site</h2>
+
   {% if form.errors %}
-    <p style="color: red">Your username and password didn't match. Please try again.</p>
+    <p style="margin: 1px 60px 7px 730px;">Your username and password didn't match. Please try again.</p>
   {% endif %}
   <form method="post">
     {% csrf_token %}
     <input type="hidden" name="next" value="{{ next }}" />
     {% for field in form %}
-      <p>
+      <p style="margin: 7px 60px 7px 800px;">
         {{ field.label_tag }}<br>
         {{ field }}<br>
         {% for error in field.errors %}
-          <p style="color: red">{{ error }}</p>
+          <p>{{ error }}</p>
         {% endfor %}
         {% if field.help_text %}
-          <p><small style="color: grey">{{ field.help_text }}</small></p>
+          <p><small style="color: grey;">{{ field.help_text }}</small></p>
         {% endif %}
       </p>
     {% endfor %}
-    <button type="submit">Log in</button>
-    <a href="{% url 'signup' %}"> Sign up</a>
+    <button type="submit" style="
+    background-color: cornflowerblue;
+    margin: 1px 60px 7px 825px;
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;" >LOG IN</button>
+
+    <a href="{% url 'signup' %} " style="
+    background-color: cornflowerblue;
+    border: none;
+    margin: 1px 60px 7px 825px;
+    color: white;
+    padding: 4px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;"> SIGN UP</a>
   </form>
 {% endblock %}
