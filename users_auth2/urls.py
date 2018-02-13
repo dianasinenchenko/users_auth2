@@ -15,15 +15,16 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from users_auth2.authentication import views as core_views
-from users_auth2.authentication.views import users, UserListView
+from users_auth2.authentication.views import UserListView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-]
+  ]
+
 urlpatterns += [
     url(r'^$', core_views.home, name='home'),
     url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
@@ -32,8 +33,8 @@ urlpatterns += [
     url(r'^account_activation_sent/$', core_views.account_activation_sent, name='account_activation_sent'),
     url(r'^activate/(?P<uidb64>[0-9A-Za-z_\-]+)/(?P<token>[0-9A-Za-z]{1,13}-[0-9A-Za-z]{1,20})/$',
         core_views.activate, name='activate'),
-    url(r'users/$', users, name= 'users'),
     url(r'user_list/', UserListView.as_view(),name='user_list'),
+
 
 
 ]
