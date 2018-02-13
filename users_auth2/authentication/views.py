@@ -9,6 +9,10 @@ from users_auth2.authentication.tokens import account_activation_token
 
 
 def home(request):
+    return render(request, 'home.html')
+
+
+def base(request):
     return render(request, 'base.html')
 
 
