@@ -1,19 +1,15 @@
 {% extends "base.html" %}
-
 {% block content %}
 
-<h1>User List</h1>
-
-           <a href="{% url 'home' %}">My page</a>
-
 {% if user_list %}
-  <ul>
+  <ul style="
+  padding: 40px 800px;
+  margin: 7px 60px 7px 10px;
+  font-size: 30px;">
 
   {% for user in user_list %}
     <li>
-
       {{ user.get_username }}
-
     </li>
   {% endfor %}
 
@@ -21,8 +17,6 @@
 {% else %}
   <p>There are no users available.</p>
 {% endif %}
-
-
 
 {% endblock %}
 
