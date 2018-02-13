@@ -50,6 +50,6 @@ def activate(request, uidb64, token):
 
 class UserListView(generic.ListView):
     model = User
-    paginate_by = 7
+    paginate_by = 10
     template_name = 'user_list.html'
 
