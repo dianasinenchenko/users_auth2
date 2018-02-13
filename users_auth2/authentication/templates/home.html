@@ -1,12 +1,23 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <h2> {{ user.username }}</h2>
-     <h2> {{ user.first_name }}</h2>
-     <h2> {{ user.last_name }}</h2>
-     <h2> {{ user.email}}</h2>
-     <h2> {{ user.date_joined }}</h2>
 
+    <div style="
+    padding: 10px 25px;
+    margin: 1px 7px 50px 1200px;
+    font-size: 30px;
+    background-color: cornflowerblue">
+     <h4 style="
+     background-color: cornflowerblue;
+     color: white;" > Welcome {{ user.username }} </h4>
 
+     <h5 style="
+     color: cornflowerblue;
+     color: white;"> email</h5>  {{ user.email}}
 
+     <h5 style="
+     color: cornflowerblue;
+     color: white;"> date of joined </h5> {{ user.date_joined }}
+
+    </div>
 {% endblock %}
