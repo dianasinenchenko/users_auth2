@@ -4,7 +4,7 @@
   <form method="post">
     {% csrf_token %}
     {% for field in form %}
-      <p style="margin: 7px 60px 7px 800px;">
+      <p style="margin: 1% 1% 1% 40%;">
       {{ field.label_tag }} <br>
        {{ field }}<br>
         {% for error in field.errors %}
@@ -15,14 +15,14 @@
 
          <button type="submit" style="
                  background-color: cornflowerblue;
-                 margin: 7px 60px 7px 825px;
+                 margin:1% 1% 1% 41%;
                  border:   none;
                  color: white;
-                 padding: 15px 25px;
+                 padding: 1% 2%;
                  text-align: center;
                  text-decoration: none;
                  display: inline-block;
-                 font-size: 16px;">SIGN UP</button>
+                 font-size: 100%;">SIGN UP</button>
 
   </form>
 {% endblock %}
