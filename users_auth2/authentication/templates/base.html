@@ -14,52 +14,52 @@
         background-color: cornflowerblue;
         border: none;
         color: white;
-        padding: 7px 30px;
+        padding: 1% 2%;
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 16px; ">LOGOUT</a>
+        font-size: 100%; ">LOGOUT</a>
 
            <a href="{% url 'user_list' %} " style="
            background-color: cornflowerblue;
            border: none;
            color: white;
-           padding: 7px 30px;
+           padding: 1% 2%;
            text-align: center;
            text-decoration: none;
            display: inline-block;
-           font-size: 16px; " >USER LIST</a>
+           font-size: 100%; " >USER LIST</a>
 
 
            <a href="{% url 'home' %}" style="
            background-color: cornflowerblue;
            border: none;
            color: white;
-           padding: 7px 30px;
+           padding: 1% 2%;
            text-align: center;
            text-decoration: none;
            display: inline-block;
-           font-size: 16px;">PAGE</a>
+           font-size: 100%;">PAGE</a>
       {% else %}
         <a href="{% url 'login' %}"  style="
         background-color: cornflowerblue;
         border: none;
         color: white;
-        padding: 7px 30px;
+        padding: 1% 2%;
         text-align: center;
         text-decoration: none;
         display: inline-block;
-        font-size: 16px;"
+        font-size: 100%;"
        >LOG IN</a>
           <a href="{% url 'signup' %}" style="
           background-color: cornflowerblue;
           border: none;
           color: white;
-          padding: 7px 30px;
+          padding: 1% 2%;
           text-align: center;
           text-decoration: none;
           display: inline-block;
-          font-size: 16px; ">SIGNUP</a>
+          font-size: 100%; ">SIGNUP</a>
       {% endif %}
 
       <hr>
@@ -77,27 +77,27 @@
                 {% if page_obj.has_previous %}
                     <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}" style="
                     background-color: cornflowerblue;
-                    margin: 1px 60px 7px 800px;
+                    margin:1% 1% 1% 40%;
                     border: none;
                     color: white;
-                    padding: 10px 25px;
+                    padding: 1% 3.2%;
                     text-align: center;
                     text-decoration: none;
                     display: inline-block;
-                    font-size: 16px;">previous</a>
+                    font-size: 100%;">previous</a>
                 {% endif %}
 
                 {% if page_obj.has_next %}
                     <a href="{{ request.path }}?page={{ page_obj.next_page_number }}" style="
                     background-color: cornflowerblue;
                     border: none;
-                    margin: 1px 60px 7px 800px;
+                    margin: 1% 1% 1% 40%;
                     color: white;
-                    padding: 10px 38px;
+                    padding: 1% 4%;
                     text-align: center;
                     text-decoration: none;
                     display: inline-block;
-                    font-size: 16px;">next</a>
+                    font-size: 100%;">next</a>
                 {% endif %}
             </span>
                     </div>
