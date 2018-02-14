@@ -24,7 +24,8 @@ def signup(request):
             user.is_active = True
             user.save()
             request.session['uidb64'] = user.pk
-            return redirect('login')
+            login(request, user)
+            return redirect('home')
     else:
         form = SignUpForm()
     return render(request, 'signup.html', {'form': form})
